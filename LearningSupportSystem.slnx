@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LearningSupportSystem.AppHost/LearningSupportSystem.AppHost.csproj" Id="2697773b-eda0-4e3f-bfbe-ce1da30e9ed3" />
+  <Project Path="LearningSupportSystem.ServiceDefaults/LearningSupportSystem.ServiceDefaults.csproj" />
+  <Project Path="Web/Web.csproj" />
+</Solution>
