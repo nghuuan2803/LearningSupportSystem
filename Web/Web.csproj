@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearningSupportSystem.ServiceDefaults\LearningSupportSystem.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Quiz\QuizApp.csproj" />
   </ItemGroup>
 
 </Project>
