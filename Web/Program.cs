@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using QuizApp.Data;
+using QuizApp.Models.Entities;
 using Web.Components;
 using Web.Components.Account;
-using Web.Data;
-
+using QuizApp;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -25,13 +25,11 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddQuizApp(builder.Configuration);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddEntityFrameworkStores<QuizDbContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
 

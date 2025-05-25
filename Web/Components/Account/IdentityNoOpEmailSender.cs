@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Web.Data;
+using QuizApp.Models.Entities;
 
 namespace Web.Components.Account;
 

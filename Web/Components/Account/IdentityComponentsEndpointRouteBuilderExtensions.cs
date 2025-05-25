@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using QuizApp.Models.Entities;
 using Web.Components.Account.Pages;
 using Web.Components.Account.Pages.Manage;
-using Web.Data;
 
 namespace Microsoft.AspNetCore.Routing;
 

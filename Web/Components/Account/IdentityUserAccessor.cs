@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using Web.Data;
+using QuizApp.Models.Entities;
 
 namespace Web.Components.Account;
 
