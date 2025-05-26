@@ -6,7 +6,7 @@ public class ExamAttempt
     [Key]
     public Guid Id { get; set; }
 
-    public Guid CandidateId { get; set; }
+    public string CandidateId { get; set; }
     public ApplicationUser? Candidate { get; set; }
 
     public Guid ExamId { get; set; }

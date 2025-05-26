@@ -1,5 +1,7 @@
+using StackExchange.Redis;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.Web>("web");
-
+var redis = builder.AddRedis("redis");
+builder.AddProject<Projects.Web>("web").WithReference(redis); ;
 builder.Build().Run();

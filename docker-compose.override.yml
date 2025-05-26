@@ -1,0 +1,12 @@
+services:
+  web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8086;http://+:8085
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Web.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+    ports:
+      - "8085:8085"
+      - "8086:8086"
+    volumes:
+      - ${USERPROFILE}/AppData/Roaming/ASP.NET/Https:/https:ro

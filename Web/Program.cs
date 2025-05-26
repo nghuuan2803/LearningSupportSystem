@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using QuizApp;
 using QuizApp.Data;
 using QuizApp.Models.Entities;
+using System;
 using Web.Components;
 using Web.Components.Account;
-using QuizApp;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -37,6 +39,8 @@ builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSe
 
 var app = builder.Build();
 
+await MigrationData(app);
+
 app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
@@ -64,3 +68,14 @@ app.MapRazorComponents<App>()
 app.MapAdditionalIdentityEndpoints();
 
 app.Run();
+
+static async Task MigrationData(WebApplication webApplication)
+{
+    Thread.Sleep(10000);
+    using (var scope = webApplication.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<QuizDbContext>();
+
+        await dbContext.Database.MigrateAsync();
+    }
+}

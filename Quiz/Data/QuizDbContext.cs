@@ -50,13 +50,6 @@ public class QuizDbContext(DbContextOptions<QuizDbContext> options) : IdentityDb
             .HasForeignKey(ea => ea.CandidateId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // ExamAttempt → Exam
-        builder.Entity<ExamAttempt>()
-            .HasOne(ea => ea.Exam)
-            .WithMany()
-            .HasForeignKey(ea => ea.ExamId)
-            .OnDelete(DeleteBehavior.Cascade);
-
         // ExamAttemptAnswer → ExamAttempt
         builder.Entity<ExamAttemptAnswer>()
             .HasOne(eaa => eaa.ExamAttempt)

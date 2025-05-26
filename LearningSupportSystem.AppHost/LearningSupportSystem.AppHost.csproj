@@ -13,9 +13,11 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.3.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\docker-compose.dcproj" />
     <ProjectReference Include="..\Web\Web.csproj" />
   </ItemGroup>
 
